@@ -1,0 +1,82 @@
+def paper(user,res):
+    if user == "paper":
+        print("Paper! -> That's Tie!")
+        print(f"user score ({res[0]}) - ({res[1]}) pc score ")
+    elif user == "rock":
+        print("Paper! -> You Lose!")
+        res[1] += 1
+        print(f"user score ({res[0]}) - ({res[1]}) pc score ")
+    elif user == "scissors":
+        print("Paper! -> You win!")
+        res[0] += 1
+        print(f"user score ({res[0]}) - ({res[1]}) pc score ")
+    return res
+
+
+def scissors(user,res):
+    if user == "paper":
+        print("Scissors! -> You lose!")
+        res[1] += 1
+        print(f"user score ({res[0]}) - ({res[1]}) pc score ")
+    elif user == "rock":
+        print("Scissors! -> You win!")
+        res[0] += 1
+        print(f"user score ({res[0]}) - ({res[1]}) pc score ")
+    elif user == "scissors":
+        print("Scissors! -> That's Tie!")
+        print(f"user score ({res[0]}) - ({res[1]}) pc score ")
+    return res
+
+def rock(user,res):
+    if user == "rock":
+        print("Rock! -> Thats Tie!")
+        print(f"user score ({res[0]}) - ({res[1]}) pc score ")
+    elif user == "paper":
+        print("Rock! -> You Win!")
+        res[0] += 1
+        print(f"user score ({res[0]}) - ({res[1]}) pc score ")
+    elif user == "scissors":
+        res[1] += 1
+        print("Rock! -> You lose!")
+        print(f"user score ({res[0]}) - ({res[1]}) pc score ")
+
+    return res
+
+print("Press: \n"
+          "1: Rock \n"
+          "2: Paper \n"
+          "3: Scissors\n")
+
+
+import random
+
+choice = ["rock", "paper", "scissors"]
+
+
+
+result = [0,0]
+while result[0] < 5 and result[1]<5:
+    pc_choice = random.choice(choice)
+    user_choice=int(input())
+    if user_choice == 1:
+        user_choice = "rock"
+    elif user_choice == 2:
+        user_choice = "paper"
+    elif user_choice == 3:
+        user_choice = "scissors"
+    if user_choice not in choice:
+        print("Wrong entered data, try again using : rock, paper or scissors")
+        continue
+    else:
+        if pc_choice == "rock":
+            result=rock(user_choice,result)
+
+        elif pc_choice == "paper":
+            result = paper(user_choice,result)
+        elif pc_choice == "scissors":
+            result =scissors(user_choice,result)
+
+data=input()
+
+
+
